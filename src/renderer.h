@@ -5,7 +5,7 @@
 #include <string>
 #include "SDL.h"
 #include "snake.h"
-#include <SDL_image.h>
+#include "SDL_image.h"
 
 class Renderer {
  public:
