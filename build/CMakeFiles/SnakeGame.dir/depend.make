@@ -165,6 +165,7 @@ CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: /usr/include/SDL2/SDL_gamecontrolle
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: /usr/include/SDL2/SDL_gesture.h
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: /usr/include/SDL2/SDL_haptic.h
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: /usr/include/SDL2/SDL_hints.h
+CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: /usr/include/SDL2/SDL_image.h
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: /usr/include/SDL2/SDL_joystick.h
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: /usr/include/SDL2/SDL_keyboard.h
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: /usr/include/SDL2/SDL_keycode.h

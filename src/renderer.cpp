@@ -14,12 +14,6 @@ Renderer::Renderer(const std::size_t screen_width,
     std::cerr << "SDL could not initialize.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
   }
-        
-  //Initialize background texture
-  if(background == NULL)
-  {
-    background = load_image("coral_bckgrnd.png", sdl_renderer);
-  }
 
   // Create Window
   sdl_window = SDL_CreateWindow("Snake Game", SDL_WINDOWPOS_CENTERED,
@@ -36,6 +30,12 @@ Renderer::Renderer(const std::size_t screen_width,
   if (nullptr == sdl_renderer) {
     std::cerr << "Renderer could not be created.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
+  }
+
+  //Initialize background texture
+  if(background == NULL)
+  {
+    background = load_image("coral_bckgrnd.png", sdl_renderer);
   }
 }
 
