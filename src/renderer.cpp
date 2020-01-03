@@ -26,7 +26,7 @@ Renderer::Renderer(const std::size_t screen_width,
   }
 
   // Create renderer
-  sdl_renderer = SDL_CreateRenderer(sdl_window, -1, SDL_RENDERER_ACCELERATED);
+  sdl_renderer = SDL_CreateRenderer(sdl_window, -1, SDL_RENDERER_SOFTWARE);
   if (nullptr == sdl_renderer) {
     std::cerr << "Renderer could not be created.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
@@ -49,14 +49,12 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
 
-  //SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
+  //Clear screen
+  SDL_RenderClear(sdl_renderer);
   
   //RenderCopy for background image
   SDL_RenderCopy(sdl_renderer, background, NULL, NULL);
   
-  //Clear screen
-  SDL_RenderClear(sdl_renderer);
-
   // Render food
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
   block.x = food.x * block.w;
@@ -64,12 +62,12 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   SDL_RenderFillRect(sdl_renderer, &block);
 
   // Render snake's body
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-  for (SDL_Point const &point : snake.body) {
-    block.x = point.x * block.w;
-    block.y = point.y * block.h;
-    SDL_RenderFillRect(sdl_renderer, &block);
-  }
+  //SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+  //for (SDL_Point const &point : snake.body) {
+    //block.x = point.x * block.w;
+    //block.y = point.y * block.h;
+    //SDL_RenderFillRect(sdl_renderer, &block);
+  //}
 
   // Render snake's head
   block.x = static_cast<int>(snake.head_x) * block.w;
