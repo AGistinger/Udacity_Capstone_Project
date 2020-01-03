@@ -70,14 +70,17 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   //}
 
   // Render snake's head
-  block.x = static_cast<int>(snake.head_x) * block.w;
-  block.y = static_cast<int>(snake.head_y) * block.h;
+  SDL_Rect head;
+  head.h = snake.size;
+  head.w = snake.size;
+  head.x = static_cast<int>(snake.head_x) * block.w;
+  head.y = static_cast<int>(snake.head_y) * block.h;
   if (snake.alive) {
     SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
   } else {
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
   }
-  SDL_RenderFillRect(sdl_renderer, &block);
+  SDL_RenderFillRect(sdl_renderer, &head);
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);
@@ -94,13 +97,13 @@ SDL_Texture* Renderer::load_image(const std::string &img_path, SDL_Renderer* ren
   auto background = IMG_Load(img_path.c_str()); //creates a SDL_Surface*
   if(background == NULL)
   {
-    std::cout << "SDL_Surface image load failed: " << SDL_GetError() << std::endl;
+    std::cout << "SDL_Surface image load failed: " << SDL_GetError() << '\n';
   }
 
   SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, background); //creates a SDL_Texture from a SDL_Surface
   if(texture == NULL)
   {
-    std::cout << "SDL_Texure load failed: " << SDL_GetError() << std::endl;
+    std::cout << "SDL_Texure load failed: " << SDL_GetError() << '\n';
   }
   
   SDL_FreeSurface(background);  //free memory from allocated surface

@@ -5,6 +5,7 @@
 #include <string>
 #include "SDL.h"
 #include "snake.h"
+#include "fish_food.h"
 #include "SDL_image.h"
 
 class Renderer {

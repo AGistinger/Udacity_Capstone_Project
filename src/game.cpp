@@ -1,5 +1,6 @@
 #include "game.h"
 #include <iostream>
+#include <random>
 #include "SDL.h"
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
@@ -58,9 +59,10 @@ void Game::PlaceFood() {
     // Check that the location is not occupied by a snake item before placing
     // food.
     //if (!snake.SnakeCell(x, y)) {
-      //food.x = x;
+      food.x = x;
       food.y = y;
-      //return;
+      fish.set_size(std::rand() % ((70 - 20 + 1) + 20));
+      return;
     //}
   }
 }
@@ -80,6 +82,7 @@ void Game::Update() {
     // Grow snake and increase speed.
     //snake.GrowBody();
     snake.speed += 0.02;
+    snake.size += 5;
   }
 }
 
