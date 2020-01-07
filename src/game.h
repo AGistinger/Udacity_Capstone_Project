@@ -15,11 +15,13 @@ class Game {
            std::size_t target_frame_duration);
   int GetScore() const;
   int GetSize() const;
+  bool CollDetect();
 
  private:
-  Snake snake;
+  Fish fish;
   SDL_Point food;
-  Fish_Food fish;
+  Fish_Food fish_food;
+  Uint32  update_time;  //Used to track food spawn timer
 
   std::random_device dev;
   std::mt19937 engine;

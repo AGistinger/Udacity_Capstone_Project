@@ -19,6 +19,14 @@ iostream
 -
 random
 -
+thread
+-
+chrono
+-
+functional
+-
+math.h
+-
 SDL.h
 /home/workspace/Udacity_Capstone_Project-master/src/SDL.h
 

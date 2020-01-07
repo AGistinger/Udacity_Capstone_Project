@@ -20,9 +20,9 @@ Fish_Food::Fish_Food(Fish_Food&& source)
     size = std::move(source.size);
 }
 
-int Fish_Food::get_size()
+const double Fish_Food::get_size() const
 {
-    return size;
+    return  size;
 }
 
 void Fish_Food::set_size(int num)
