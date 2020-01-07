@@ -16,12 +16,14 @@ class Game {
   int GetScore() const;
   int GetSize() const;
   bool CollDetect();
+  double ConvPxGrid(double px);
 
  private:
   Fish fish;
   SDL_Point food;
   Fish_Food fish_food;
   Uint32  update_time;  //Used to track food spawn timer
+  const int px_grid_ratio {20};
 
   std::random_device dev;
   std::mt19937 engine;

@@ -76,20 +76,26 @@ void Game::PlaceFood() {
     x = random_w(engine);
     y = random_h(engine);
     fish_food.set_size(std::rand() % ((50 - 10) +1) + 10);
-    food.x = x - (fish_food.get_size()/20);
-    food.y = y - (fish_food.get_size()/20);
+    food.x = x - (ConvPxGrid(fish_food.get_size()));
+    food.y = y - (ConvPxGrid(fish_food.get_size()));
     return;
   }
+}
+
+//Convert Pixels to Grid
+double Game::ConvPxGrid(double px)
+{
+  return px / px_grid_ratio;
 }
 
 //Determines the center x/y of each object and determines if the objects are close together
 bool Game::CollDetect()
 {
   //get the center x/y locations for each object
-  double food_mid_x {static_cast<double>(food.x + ((fish_food.get_size()/2) /20))};
-  double food_mid_y {static_cast<double>(food.y + ((fish_food.get_size()/2) /20))};
-  double fish_mid_x {static_cast<double>(fish.head_x + ((fish.size/2) /20))};
-  double fish_mid_y {static_cast<double>(fish.head_y + ((fish.size/2) /20))};
+  double food_mid_x {food.x + (ConvPxGrid(fish_food.get_size()) / 2)};
+  double food_mid_y {food.y + (ConvPxGrid(fish_food.get_size()) / 2)};
+  double fish_mid_x {fish.head_x + (ConvPxGrid(fish.size) / 2)};
+  double fish_mid_y {fish.head_y + (ConvPxGrid(fish.size) / 2)};
 
   //calculate collision
   auto calc_x = food_mid_x > fish_mid_x ? (food_mid_x - fish_mid_x) : (fish_mid_x - food_mid_x);
