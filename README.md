@@ -6,7 +6,7 @@ This project uses the starter repo for the Capstone project in the [Udacity C++ 
 
 The SnakeGame has been refactored to be a Fish game.  The Player is able to eat smaller fish and grow larger, but if the player attempts to eat a fish larger than themselves they be eaten.
 
-Code Breakdown:
+## Code Breakdown:
 * snake.h and snake.cpp contains the refactored Fish class which has been changed to allow the Fish to grow when it eats fish_food.
 * fish_food.h and fish_food.cpp contains the Fish_Food class that was created using the rule of 5.  The Fish_Food class contains private data members and public member functions that can be used to interact with the class variables.
 * renderer.h and renderer.cpp has been updated to render a background image and handle rendering the new Fish_Food object.
@@ -18,7 +18,7 @@ Code Breakdown:
     * Game::Update has been updated to use the CollDetect function for food detection
 * all files have been updated to use the new fish objects instead of snake.
 
-Ruberic Items:
+## Ruberic Items:
 * The project demonstrates an understanding of C++ functions and control structures.
 	* fish_food.cpp line# 23, 28
     * renderer.cpp line# 55-72, 89-105

@@ -57,6 +57,7 @@ void Renderer::Render(Fish const fish, SDL_Point const &food, Fish_Food const &f
   
   // Render food
   SDL_Rect food_rect;
+  //SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
   food_rect.h = fish_food.get_size();
   food_rect.w = fish_food.get_size();
