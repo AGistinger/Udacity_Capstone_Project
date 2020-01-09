@@ -2,9 +2,9 @@
 
 This project uses the starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
 
-<img src="Fish_Game_Screen.PNG"/>
-
 The SnakeGame has been refactored to be a Fish game.  The Player is able to eat smaller fish and grow larger, but if the player attempts to eat a fish larger than themselves they be eaten.
+
+<img src="Fish_Game_Screen.PNG"/>
 
 ## Code Breakdown:
 * snake.h and snake.cpp contains the refactored Fish class which has been changed to allow the Fish to grow when it eats fish_food.
@@ -48,8 +48,6 @@ The SnakeGame has been refactored to be a Fish game.  The Player is able to eat 
 * The project follows the Rule of 5.
 	* fish_food.h line# 1-21
     * fish_food.cpp line# 1-31
-* The project makes use of references in function declarations.
-	* 
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
