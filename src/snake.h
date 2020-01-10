@@ -1,7 +1,6 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
-#include <vector>
 #include "SDL.h"
 
 class Fish {
@@ -23,6 +22,7 @@ class Fish {
   bool alive{true};
   float head_x;
   float head_y;
+  SDL_Rect head_rect;  //variable used to pass info to game functionality
 
  private:
   void UpdateHead();

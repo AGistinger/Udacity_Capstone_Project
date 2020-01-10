@@ -2,7 +2,7 @@
 
 This project uses the starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
 
-The SnakeGame has been refactored to be a Fish game.  The Player is able to eat smaller fish and grow larger, but if the player attempts to eat a fish larger than themselves they be eaten.
+The SnakeGame has been refactored to be a Fish game.  The Player is able to eat smaller fish and grow larger, but if the player attempts to eat a fish larger than themselves they will be eaten and game over.
 
 <img src="Fish_Game_Screen.PNG"/>
 
@@ -14,15 +14,14 @@ The SnakeGame has been refactored to be a Fish game.  The Player is able to eat 
 	* Game::Run has been updated to terminate the game once the player fish is killed.  Functionality has also been added to place a new fish_food allowing the user to avoid eating fish they cannot eat.
     * Game::Place_Food has been updated to randomly select a food size.
     * Game::ConvPxGrid has been added to allow for more readable calculations.
-    * Game::CollDetect has been added to calculate collision for Fish and Fish_Food objects
-    * Game::Update has been updated to use the CollDetect function for food detection
+    * Game::Update has been updated to use the SDL_HasIntersection function for food detection
 * all files have been updated to use the new fish objects instead of snake.
 
 ## Ruberic Items:
 * The project demonstrates an understanding of C++ functions and control structures.
 	* fish_food.cpp line# 23, 28
     * renderer.cpp line# 55-72, 89-105
-    * game.cpp line# 37-44, 64-66, 78-80, 85-89, 91-110
+    * game.cpp line# 37-44, 64-66, 78-80, 85-89
 * The project reads data from a file and process the data, or the program writes data to a file.
 	* renderer.h line# 23, 29
     * renderer.cpp line# 89-106
@@ -30,7 +29,7 @@ The SnakeGame has been refactored to be a Fish game.  The Player is able to eat 
 	* fish_food.h line# 1-21
     * fish_food.cpp line# 1-31
     * game.h line# 24-26, 18, 19
-    * game.cpp  line# 85-89, 91-110
+    * game.cpp  line# 85-89
     * renderer.h line# 23, 29
     * renderer.cpp line# 89-106
 * Classes use appropriate access specifiers for class members.
@@ -44,7 +43,7 @@ The SnakeGame has been refactored to be a Fish game.  The Player is able to eat 
     * renderer.h line# 23
     * renderer.cpp line# 89-106
     * game.h line# 18, 19, 24, 25, 26
-    * game.cpp line# 85-89, 91-110
+    * game.cpp line# 85-89
 * The project follows the Rule of 5.
 	* fish_food.h line# 1-21
     * fish_food.cpp line# 1-31

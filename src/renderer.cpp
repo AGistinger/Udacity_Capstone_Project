@@ -44,7 +44,7 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-void Renderer::Render(Fish const fish, SDL_Point const &food, Fish_Food const &fish_food) {
+void Renderer::Render(Fish &fish, SDL_Point const &food, Fish_Food &fish_food) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -56,27 +56,24 @@ void Renderer::Render(Fish const fish, SDL_Point const &food, Fish_Food const &f
   SDL_RenderCopy(sdl_renderer, background, NULL, NULL);
   
   // Render food
-  SDL_Rect food_rect;
-  //SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
-  food_rect.h = fish_food.get_size();
-  food_rect.w = fish_food.get_size();
-  food_rect.x = static_cast<int>(food.x) * block.w;
-  food_rect.y = static_cast<int>(food.y) * block.h;
-  SDL_RenderFillRect(sdl_renderer, &food_rect);
+  SDL_SetRenderDrawColor(sdl_renderer, 178, 56, 255, 1.0);
+  fish_food.food_rect.h = fish_food.get_size();
+  fish_food.food_rect.w = fish_food.get_size();
+  fish_food.food_rect.x = static_cast<int>(food.x) * block.w;
+  fish_food.food_rect.y = static_cast<int>(food.y) * block.h;
+  SDL_RenderFillRect(sdl_renderer, &fish_food.food_rect);
 
-  // Render snake's head
-  SDL_Rect head;
-  head.h = fish.size;
-  head.w = fish.size;
-  head.x = static_cast<int>(fish.head_x) * block.w;
-  head.y = static_cast<int>(fish.head_y) * block.h;
+  // Render Fish
+  fish.head_rect.h = fish.size;
+  fish.head_rect.w = fish.size;
+  fish.head_rect.x = static_cast<int>(fish.head_x) * block.w;
+  fish.head_rect.y = static_cast<int>(fish.head_y) * block.h;
   if (fish.alive) {
-    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
+    SDL_SetRenderDrawColor(sdl_renderer, 30, 217, 255, 1.0);
   } else {
-    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+    SDL_SetRenderDrawColor(sdl_renderer, 253, 16, 111, 1.0);
   }
-  SDL_RenderFillRect(sdl_renderer, &head);
+  SDL_RenderFillRect(sdl_renderer, &fish.head_rect);
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);

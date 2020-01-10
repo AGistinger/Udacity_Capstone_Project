@@ -1,7 +1,6 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include <vector>
 #include <string>
 #include "SDL.h"
 #include "snake.h"
@@ -14,7 +13,7 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();
 
-  void Render(Fish const fish, SDL_Point const &food, Fish_Food const &fish_food);
+  void Render(Fish &fish, SDL_Point const &food, Fish_Food &fish_food);
   void UpdateWindowTitle(int score, int fps);
 
  private:

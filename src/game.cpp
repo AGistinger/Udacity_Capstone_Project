@@ -64,7 +64,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     //End the game if fish is no longer alive
     if(!fish.alive)
     {
-      std::this_thread::sleep_for(std::chrono::seconds(5));
+      std::this_thread::sleep_for(std::chrono::seconds(3));
       running = false;
     }
   }
@@ -88,27 +88,6 @@ double Game::ConvPxGrid(double px)
   return px / px_grid_ratio;
 }
 
-//Determines the center x/y of each object and determines if the objects are close together
-bool Game::CollDetect()
-{
-  //get the center x/y locations for each object
-  double food_mid_x {food.x + (ConvPxGrid(fish_food.get_size()) / 2)};
-  double food_mid_y {food.y + (ConvPxGrid(fish_food.get_size()) / 2)};
-  double fish_mid_x {fish.head_x + (ConvPxGrid(fish.size) / 2)};
-  double fish_mid_y {fish.head_y + (ConvPxGrid(fish.size) / 2)};
-
-  //calculate collision
-  auto calc_x = food_mid_x > fish_mid_x ? (food_mid_x - fish_mid_x) : (fish_mid_x - food_mid_x);
-  auto calc_y = food_mid_y > fish_mid_y ? (food_mid_y - fish_mid_y) : (fish_mid_y - food_mid_y);
-
-  //return true of objects are close together
-  if(calc_x <= 1 && calc_y <= 1)
-  {
-    return true;
-  }
-  return false;
-}
-
 void Game::Update() {
   if (!fish.alive) return;
 
@@ -118,8 +97,7 @@ void Game::Update() {
   int new_y = static_cast<int>(fish.head_y);
 
   // Check if there's food over here
-  //if (food.x == new_x && food.y == new_y) {
-  if(CollDetect()) {
+  if(SDL_HasIntersection(&fish.head_rect, &fish_food.food_rect)) {  //checks collision between 2 SDL_Rect
     if(fish.size >= fish_food.get_size())
     {
       score++;

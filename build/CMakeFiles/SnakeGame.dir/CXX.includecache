@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/workspace/Udacity_Capstone_Project-master/src/controller.cpp
+controller.h
+/home/workspace/Udacity_Capstone_Project-master/src/controller.h
+iostream
+-
+SDL.h
+/home/workspace/Udacity_Capstone_Project-master/src/SDL.h
+snake.h
+/home/workspace/Udacity_Capstone_Project-master/src/snake.h
+
 /home/workspace/Udacity_Capstone_Project-master/src/controller.h
 snake.h
 /home/workspace/Udacity_Capstone_Project-master/src/snake.h
@@ -17,6 +27,8 @@ utility
 -
 
 /home/workspace/Udacity_Capstone_Project-master/src/fish_food.h
+SDL.h
+/home/workspace/Udacity_Capstone_Project-master/src/SDL.h
 
 /home/workspace/Udacity_Capstone_Project-master/src/game.cpp
 game.h
@@ -62,9 +74,15 @@ renderer.h
 random
 -
 
+/home/workspace/Udacity_Capstone_Project-master/src/renderer.cpp
+renderer.h
 /home/workspace/Udacity_Capstone_Project-master/src/renderer.h
-vector
+iostream
 -
+string
+-
+
+/home/workspace/Udacity_Capstone_Project-master/src/renderer.h
 string
 -
 SDL.h
@@ -76,9 +94,15 @@ fish_food.h
 SDL_image.h
 /home/workspace/Udacity_Capstone_Project-master/src/SDL_image.h
 
+/home/workspace/Udacity_Capstone_Project-master/src/snake.cpp
+snake.h
 /home/workspace/Udacity_Capstone_Project-master/src/snake.h
-vector
+cmath
 -
+iostream
+-
+
+/home/workspace/Udacity_Capstone_Project-master/src/snake.h
 SDL.h
 /home/workspace/Udacity_Capstone_Project-master/src/SDL.h
 
